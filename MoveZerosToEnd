@@ -1,0 +1,41 @@
+using System;
+
+public class Program
+{
+    public void MoveZerosToEnd()
+    {
+        Console.WriteLine("Enter Size of Array");
+        int n = Convert.ToInt32(Console.ReadLine());
+        int[] arr = new int[n];
+
+        Console.WriteLine("Enter Array Elements:");
+        for (int i = 0; i < n; i++)
+        {
+            arr[i] = Convert.ToInt32(Console.ReadLine());
+        }
+
+        int nonZeroIndex = 0; 
+        for (int i = 0; i < n; i++)
+        {
+            if (arr[i] != 0)
+            {
+                int temp = arr[i];
+                arr[i] = arr[nonZeroIndex];
+                arr[nonZeroIndex] = temp;
+                nonZeroIndex++;
+            }
+        }
+
+        Console.WriteLine("Array after moving zeros to the end:");
+        for (int i = 0; i < n; i++)
+        {
+            Console.Write(arr[i] + " ");
+        }
+    }
+
+    public static void Main()
+    {
+        Program obj = new Program();
+        obj.MoveZerosToEnd();
+    }
+}
